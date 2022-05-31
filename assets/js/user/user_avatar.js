@@ -50,8 +50,8 @@ $('#btnUpload').click(() => {
         },
         success: res => {
             if(res.status !==0 ) return layer.msg('上传图片失败!')
-            // layer.msg('上传图片成功!')
-            window.parent.getUserInfo()
+            layer.msg('上传图片成功!')
+            window.parent.getUserInfo
         }
     })
 
