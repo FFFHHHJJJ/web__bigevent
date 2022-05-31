@@ -27,7 +27,7 @@ const renderAvatar = (user) => {
     }else {
         $('.layui-nav-img').hide()
         // console.log(user.username[0]);
-        $('.text-avatar').html(user.username[0].toUpperCase())
+        $('.text-avatar').html(uname[0].toUpperCase())
     }
 }
 
