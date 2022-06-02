@@ -35,8 +35,8 @@ $(function() {
             data: $(this).serialize(),
             success: (res) => {
                 if (res.status !== 0) return layer.msg("新增分类失败！");
-                initArtCateList();
                 layer.msg("新增分类成功！");
+                initArtCateList();
                 layer.close(indexAdd);
             }
         });
@@ -80,6 +80,22 @@ $(function() {
         })
     })
 
+    // 删除文章分类
+    $('tbody').on('click','.btn-delete',function() {
+        const id = $(this).attr('data-id')
+        layer.confirm('是否删除文章分类?', {icon: 3, title:'删除分类'}, function(index){
+            $.ajax({
+                type: 'GET',
+                url: '/my/article/deletecate/' + id,
+                success: res => {
+                    if(res.status !== 0) return layer.msg('删除文章分类失败')
+                    layer.msg('删除文章分类成功')
+                    layer.close(index)
+                    initArtCateList()
+                }
+            })
+          });
+    })
 
 
 }) 
